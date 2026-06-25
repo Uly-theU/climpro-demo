@@ -1,0 +1,11 @@
+services:
+  climpro-demo:
+    build: .
+    container_name: climpro-demo
+    restart: unless-stopped
+    ports:
+      - "3010:80"   # Port 3010 sur le VPS → port 80 du container
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.climpro.rule=Host(`demo-clim.srv1569424-1.tail30aba5.ts.net`)"
+      - "traefik.http.routers.climpro.entrypoints=web"
