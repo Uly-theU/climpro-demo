@@ -30,6 +30,7 @@ export default function DevisPage() {
     tel: '',
     email: '',
     ville: '',
+    code_postal: '',
     message: '',
   })
 
@@ -55,7 +56,7 @@ export default function DevisPage() {
       email: form.email,
       telephone: form.tel,
       ville: form.ville,
-      code_postal: '',
+      code_postal: form.code_postal,
       type_logement: form.type.toLowerCase().replace(' ', '_'),
       proprietaire: true,
       surface: surfaceMap[form.surface] || 80,
@@ -194,7 +195,8 @@ export default function DevisPage() {
                     { key: 'nom', label: 'Nom & Prénom', type: 'text', placeholder: 'Jean Dupont' },
                     { key: 'tel', label: 'Téléphone', type: 'tel', placeholder: '06 12 34 56 78' },
                     { key: 'email', label: 'Email', type: 'email', placeholder: 'jean@exemple.fr' },
-                    { key: 'ville', label: 'Ville', type: 'text', placeholder: 'Marseille' },
+                    { key: 'ville', label: 'Ville', type: 'text', placeholder: 'Sarreguemines' },
+                    { key: 'code_postal', label: 'Code postal', type: 'text', placeholder: '57200' },
                   ].map(f => (
                     <div key={f.key}>
                       <label className="block text-sm font-semibold text-navy-700 mb-1.5">{f.label}</label>
@@ -234,6 +236,7 @@ export default function DevisPage() {
                     { label: 'Téléphone', val: form.tel },
                     { label: 'Email', val: form.email },
                     { label: 'Ville', val: form.ville },
+                    { label: 'Code postal', val: form.code_postal },
                   ].filter(r => r.val).map(r => (
                     <div key={r.label} className="flex justify-between">
                       <span className="text-slate-500 font-medium">{r.label}</span>
