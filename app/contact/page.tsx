@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Contact — ClimPro Méditerranée',
-  description: 'Contactez ClimPro Méditerranée pour un devis gratuit ou un renseignement. Téléphone, email, horaires.',
+  title: 'Contact — ClimPro Moselle',
+  description: 'Contactez ClimPro Moselle pour un devis gratuit ou un renseignement. Téléphone, email, horaires. Sarreguemines — Moselle Est.',
 }
 
 const horaires = [

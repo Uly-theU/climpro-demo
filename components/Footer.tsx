@@ -15,7 +15,7 @@ export default function Footer() {
             </div>
             <div>
               <span className="font-display font-bold text-white text-lg leading-none block">ClimPro</span>
-              <span className="text-xs text-slate-400 leading-none">Méditerranée</span>
+              <span className="text-xs text-slate-400 leading-none">Moselle Est</span>
             </div>
           </div>
           <p className="text-sm text-slate-400 leading-relaxed">

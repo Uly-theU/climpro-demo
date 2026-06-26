@@ -25,7 +25,7 @@ export default function Header() {
           </div>
           <div>
             <span className="font-display font-bold text-navy-700 text-lg leading-none block">ClimPro</span>
-            <span className="text-xs text-slate-400 font-medium leading-none">Méditerranée</span>
+            <span className="text-xs text-slate-400 font-medium leading-none">Moselle Est</span>
           </div>
         </Link>
 

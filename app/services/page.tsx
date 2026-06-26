@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Nos services — Climatisation & PAC | ClimPro Méditerranée',
+  title: 'Nos services — Climatisation & PAC | ClimPro Moselle',
   description: 'Installation PAC air/air, air/eau, climatisation gainable et entretien annuel en Moselle Est. Certifié RGE QualiPAC, devis gratuit sous 24h.',
 }
 
