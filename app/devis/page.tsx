@@ -1,17 +1,27 @@
 'use client'
 import { useState } from 'react'
-import type { Metadata } from 'next'
 
-// Note: metadata export doesn't work in client components
-// For production, split into server component wrapper
+const WEBHOOK_URL = 'https://n8n-ppwn.srv1569424.hstgr.cloud/webhook/metis-devis'
 
 const types = ['Appartement', 'Maison individuelle', 'Local commercial', 'Autre']
 const services = ['PAC Air/Air', 'PAC Air/Eau', 'Climatisation gainable', 'Entretien annuel', 'Dépannage urgent', 'Je ne sais pas encore']
 const surfaces = ['< 30m²', '30–60m²', '60–100m²', '100–150m²', '150–250m²', '> 250m²']
 
+// Mapping surface texte → m² numérique pour le scoring
+const surfaceMap: Record<string, number> = {
+  '< 30m²': 25,
+  '30–60m²': 45,
+  '60–100m²': 80,
+  '100–150m²': 125,
+  '150–250m²': 200,
+  '> 250m²': 300,
+}
+
 export default function DevisPage() {
   const [step, setStep] = useState(1)
   const [sent, setSent] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
   const [form, setForm] = useState({
     service: '',
     type: '',
@@ -25,9 +35,56 @@ export default function DevisPage() {
 
   const set = (k: string, v: string) => setForm(f => ({ ...f, [k]: v }))
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSent(true)
+    setLoading(true)
+    setError('')
+
+    // Mapping service → type_demande pour le scoring n8n
+    const typeDemandeMap: Record<string, string> = {
+      'PAC Air/Air': 'installation',
+      'PAC Air/Eau': 'installation',
+      'Climatisation gainable': 'installation',
+      'Entretien annuel': 'entretien',
+      'Dépannage urgent': 'depannage',
+      'Je ne sais pas encore': 'installation',
+    }
+
+    const payload = {
+      nom: form.nom,
+      email: form.email,
+      telephone: form.tel,
+      ville: form.ville,
+      code_postal: '',
+      type_logement: form.type.toLowerCase().replace(' ', '_'),
+      proprietaire: true,
+      surface: surfaceMap[form.surface] || 80,
+      nb_pieces: 0,
+      type_demande: typeDemandeMap[form.service] || 'installation',
+      type_clim: form.service,
+      chauffage_actuel: 'inconnu',
+      installation_existante: false,
+      urgence: 'sous_30_jours',
+      creneau_rappel: '',
+      message: form.message,
+      consentement_rgpd: true,
+      source: 'formulaire_site',
+    }
+
+    try {
+      const res = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      setSent(true)
+    } catch (err) {
+      setError('Une erreur est survenue. Veuillez réessayer ou nous appeler directement.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   if (sent) {
@@ -190,10 +247,15 @@ export default function DevisPage() {
                   </svg>
                   <span className="text-green-700">Devis <strong>100% gratuit et sans engagement</strong>. Nous vous rappelons sous 24h.</span>
                 </div>
+                {error && (
+                  <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-sm text-red-700 mb-4">
+                    {error}
+                  </div>
+                )}
                 <div className="flex gap-3">
-                  <button type="button" onClick={() => setStep(2)} className="btn-outline flex-1 justify-center">← Retour</button>
-                  <button type="submit" className="btn-primary flex-1 justify-center">
-                    Envoyer ma demande ✓
+                  <button type="button" onClick={() => setStep(2)} className="btn-outline flex-1 justify-center" disabled={loading}>← Retour</button>
+                  <button type="submit" disabled={loading} className="btn-primary flex-1 justify-center disabled:opacity-60 disabled:cursor-not-allowed">
+                    {loading ? 'Envoi en cours…' : 'Envoyer ma demande ✓'}
                   </button>
                 </div>
               </div>
