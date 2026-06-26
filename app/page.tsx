@@ -30,14 +30,15 @@ const services = [
 const reviews = [
   {
     name: 'Sophie M.',
-    location: 'Marseille 13e',
+    location: 'Sarreguemines (57)',
+
     rating: 5,
     text: 'Installation rapide et soignée. L\'équipe est arrivée à l\'heure, travail propre, aucune mauvaise surprise sur la facture. Je recommande vivement !',
     date: 'Il y a 2 semaines',
   },
   {
     name: 'Patrick D.',
-    location: 'Aix-en-Provence',
+    location: 'Forbach (57)',
     rating: 5,
     text: 'Très professionnel, devis clair et honnête. Ma PAC air/eau tourne depuis 6 mois sans aucun problème. Excellent rapport qualité/prix.',
     date: 'Il y a 1 mois',
@@ -51,7 +52,7 @@ const reviews = [
   },
 ]
 
-const zones = ['Marseille', 'Aix-en-Provence', 'Aubagne', 'La Ciotat', 'Cassis', 'Martigues', 'Salon-de-Provence', 'Vitrolles', 'Istres', 'Gardanne', 'Allauch', 'Plan-de-Cuques']
+const zones = ['Sarreguemines', 'Forbach', 'Sarrebourg', 'Saint-Avold', 'Bitche', 'Bouzonville', 'Freyming-Merlebach', 'Puttelange-aux-Lacs', 'Morhange', 'Phalsbourg', 'Dieuze', 'Creutzwald']
 
 export default function Home() {
   return (
@@ -70,12 +71,12 @@ export default function Home() {
             </div>
             <h1 className="font-display text-4xl md:text-5xl font-bold leading-tight mb-6">
               Votre expert clim à{' '}
-              <span className="text-sun-400">Marseille</span>{' '}
-              et dans le 13
+              <span className="text-sun-400">Sarreguemines</span>{' '}
+              et en Moselle Est
             </h1>
             <p className="text-slate-300 text-lg leading-relaxed mb-8">
-              Installation, entretien et dépannage de climatisation et pompes à chaleur.
-              Devis gratuit sous 24h. Financement disponible.
+              Installation, entretien et dépannage de climatisation et pompes à chaleur
+              dans toute la Moselle Est. Devis gratuit sous 24h. Déplacement offert.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link href="/devis" className="btn-primary text-base py-3.5">
@@ -220,7 +221,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-sun-500 font-semibold text-sm uppercase tracking-wider mb-3">Intervention locale</p>
           <h2 className="section-title">Nos zones d'intervention</h2>
-          <p className="section-sub mb-8">Nous intervenons dans tout le département des Bouches-du-Rhône (13).</p>
+          <p className="section-sub mb-8">Nous intervenons dans toute la Moselle Est, dans un rayon de 60 km autour de Sarreguemines.</p>
           <div className="flex flex-wrap justify-center gap-2.5">
             {zones.map(z => (
               <span key={z} className="badge text-sm">{z}</span>

@@ -4,12 +4,12 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'ClimPro Méditerranée — Installateur Climatisation Marseille',
-  description: 'Installation et entretien de climatisation et PAC à Marseille et dans les Bouches-du-Rhône. Certifié RGE QualiPAC. Devis gratuit sous 24h.',
-  keywords: 'installateur climatisation marseille, PAC air air marseille, climatisation 13, devis climatisation',
+  title: 'ClimPro Moselle — Installateur Climatisation Sarreguemines & Moselle Est',
+  description: 'Installation et entretien de climatisation et PAC à Sarreguemines et dans toute la Moselle Est. Certifié RGE QualiPAC. Devis gratuit sous 24h, déplacement offert.',
+  keywords: 'installateur climatisation Sarreguemines, PAC air air Moselle, climatisation Forbach, climatisation Sarrebourg, pompe à chaleur Moselle Est, devis climatisation 57',
   openGraph: {
-    title: 'ClimPro Méditerranée — Installateur Climatisation Marseille',
-    description: 'Installation et entretien de climatisation et PAC à Marseille et dans les Bouches-du-Rhône.',
+    title: 'ClimPro Moselle — Installateur Climatisation Sarreguemines',
+    description: 'Installation et entretien de climatisation et PAC en Moselle Est. Certifié RGE QualiPAC. Devis gratuit sous 24h.',
     type: 'website',
   },
 }

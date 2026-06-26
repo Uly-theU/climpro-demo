@@ -19,7 +19,7 @@ export default function Footer() {
             </div>
           </div>
           <p className="text-sm text-slate-400 leading-relaxed">
-            Votre expert en installation et entretien de climatisation dans les Bouches-du-Rhône depuis 2010.
+            Votre expert en installation et entretien de climatisation en Moselle Est depuis 2010.
           </p>
           <div className="flex gap-2 mt-4">
             <span className="badge bg-navy-800 text-cool-200 text-xs">RGE QualiPAC</span>
@@ -71,7 +71,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-navy-800 py-4 text-center text-xs text-slate-500">
-        © {new Date().getFullYear()} ClimPro Méditerranée — Tous droits réservés · SIRET 123 456 789 00012
+        © {new Date().getFullYear()} ClimPro Moselle — Tous droits réservés · SIRET 123 456 789 00012
       </div>
     </footer>
   )
