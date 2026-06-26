@@ -131,36 +131,39 @@ export default function ZonesPage() {
       {/* Carte visuelle */}
       <section className="py-12 bg-white border-b border-slate-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-sm" style={{height: '400px', background: 'linear-gradient(135deg, #EFF6FF 0%, #F0FDF4 100%)', position: 'relative'}}>
-            {/* Pseudo-carte avec les villes positionnées */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <div className="text-6xl mb-3">🗺️</div>
-                <div className="text-slate-500 font-medium">Zone d'intervention — Moselle Est</div>
-                <div className="text-slate-400 text-sm mt-1">Rayon 60 km autour de Sarreguemines</div>
-              </div>
-            </div>
-            {/* Points de villes */}
+          <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-sm" style={{ height: '420px' }}>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d167238.5!2d7.0686!3d49.1135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4793f2d35c8f5555%3A0x40819a5fd979a70!2sSarreguemines%2C%2057200!5e0!3m2!1sfr!2sfr!4v1234567890"
+              width="100%"
+              height="420"
+              style={{ border: 0, display: 'block' }}
+              allowFullScreen={false}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Zone d'intervention ClimPro Moselle — Sarreguemines et Moselle Est"
+            />
+          </div>
+          {/* Légende villes */}
+          <div className="mt-4 flex flex-wrap justify-center gap-2 text-sm">
             {[
-              { ville: 'Sarreguemines', top: '52%', left: '50%', principal: true },
-              { ville: 'Forbach', top: '35%', left: '65%', principal: false },
-              { ville: 'Sarrebourg', top: '68%', left: '30%', principal: false },
-              { ville: 'Saint-Avold', top: '40%', left: '45%', principal: false },
-              { ville: 'Bitche', top: '30%', left: '42%', principal: false },
-              { ville: 'Bouzonville', top: '25%', left: '60%', principal: false },
+              { ville: 'Sarreguemines', principal: true },
+              { ville: 'Forbach', principal: false },
+              { ville: 'Sarrebourg', principal: false },
+              { ville: 'Saint-Avold', principal: false },
+              { ville: 'Bitche', principal: false },
+              { ville: 'Bouzonville', principal: false },
             ].map(p => (
-              <div
+              <span
                 key={p.ville}
-                className="absolute transform -translate-x-1/2 -translate-y-1/2"
-                style={{ top: p.top, left: p.left }}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-full font-medium ${
+                  p.principal
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-slate-100 text-slate-600'
+                }`}
               >
-                <div className={`flex flex-col items-center gap-1`}>
-                  <div className={`w-3 h-3 rounded-full border-2 border-white shadow-md ${p.principal ? 'bg-blue-600 w-4 h-4' : 'bg-blue-400'}`}></div>
-                  <div className={`text-xs font-semibold bg-white px-2 py-0.5 rounded-full shadow-sm whitespace-nowrap ${p.principal ? 'text-blue-700' : 'text-slate-600'}`}>
-                    {p.ville}
-                  </div>
-                </div>
-              </div>
+                <span className={`w-2 h-2 rounded-full ${p.principal ? 'bg-white' : 'bg-blue-400'}`} />
+                {p.ville}
+              </span>
             ))}
           </div>
         </div>

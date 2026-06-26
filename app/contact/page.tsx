@@ -62,7 +62,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-navy-700 mb-0.5">Adresse</p>
-                    <p className="text-slate-600">12 Rue des Artisans<br />13010 Marseille</p>
+                    <p className="text-slate-600">12 Rue des Artisans<br />57200 Sarreguemines</p>
                   </div>
                 </li>
               </ul>
@@ -90,14 +90,14 @@ export default function ContactPage() {
           <div className="space-y-6">
             <div className="rounded-2xl overflow-hidden shadow-card h-72 border border-slate-100">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d93285.84316085508!2d5.2918573!3d43.2964897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c9bf4344da5333%3A0x40819a5fd979a70!2sMarseille!5e0!3m2!1sfr!2sfr!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20682.3!2d7.0686!3d49.1135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4793f2d35c8f5555%3A0x40819a5fd979a70!2sSarreguemines%2C%2057200!5e0!3m2!1sfr!2sfr!4v1234567890"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen={false}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Localisation ClimPro Méditerranée"
+                title="Localisation ClimPro Moselle — Sarreguemines"
               />
             </div>
 

@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Nos services — Climatisation & PAC | ClimPro Méditerranée',
-  description: 'Installation PAC air/air, air/eau, climatisation gainable et entretien annuel à Marseille. Certifié RGE, devis gratuit sous 24h.',
+  description: 'Installation PAC air/air, air/eau, climatisation gainable et entretien annuel en Moselle Est. Certifié RGE QualiPAC, devis gratuit sous 24h.',
 }
 
 const services = [
