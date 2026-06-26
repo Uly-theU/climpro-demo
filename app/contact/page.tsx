@@ -90,7 +90,7 @@ export default function ContactPage() {
           <div className="space-y-6">
             <div className="rounded-2xl overflow-hidden shadow-card h-72 border border-slate-100">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20682.3!2d7.0686!3d49.1135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4793f2d35c8f5555%3A0x40819a5fd979a70!2sSarreguemines%2C%2057200!5e0!3m2!1sfr!2sfr!4v1234567890"
+                src="https://maps.google.com/maps?q=12+Rue+des+Artisans,+57200+Sarreguemines,+France&output=embed&z=15"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
