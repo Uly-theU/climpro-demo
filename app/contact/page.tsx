@@ -38,7 +38,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-navy-700 mb-0.5">Téléphone</p>
-                    <a href="tel:0612345678" className="text-sun-500 font-bold text-lg hover:text-sun-600 transition-colors">06 12 34 56 78</a>
+                    <a href="tel:0639981234" className="text-sun-500 font-bold text-lg hover:text-sun-600 transition-colors">06 39 98 12 34</a>
                     <p className="text-slate-400 text-xs mt-0.5">Appel gratuit · Rappel possible</p>
                   </div>
                 </li>
@@ -50,7 +50,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-navy-700 mb-0.5">Email</p>
-                    <a href="mailto:contact@climpro-med.fr" className="text-slate-600 hover:text-navy-700 transition-colors">contact@climpro-med.fr</a>
+                    <a href="mailto:contact@climpro.example" className="text-slate-600 hover:text-navy-700 transition-colors">contact@climpro.example</a>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
@@ -118,7 +118,7 @@ export default function ContactPage() {
               <div>
                 <p className="font-display font-bold text-lg">Dépannage urgent ?</p>
                 <p className="text-slate-300 text-sm">Interventions possibles sous 4h en saison.</p>
-                <a href="tel:0612345678" className="text-sun-400 font-bold hover:text-sun-300 transition-colors">06 12 34 56 78</a>
+                <a href="tel:0639981234" className="text-sun-400 font-bold hover:text-sun-300 transition-colors">06 39 98 12 34</a>
               </div>
             </div>
           </div>

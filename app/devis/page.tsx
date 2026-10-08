@@ -33,6 +33,7 @@ export default function DevisPage() {
     code_postal: '',
     message: '',
   })
+  const [consent, setConsent] = useState(false)
 
   const set = (k: string, v: string) => setForm(f => ({ ...f, [k]: v }))
 
@@ -68,7 +69,7 @@ export default function DevisPage() {
       urgence: 'sous_30_jours',
       creneau_rappel: '',
       message: form.message,
-      consentement_rgpd: true,
+      consentement_rgpd: consent,
       source: 'formulaire_site',
     }
 
@@ -100,8 +101,8 @@ export default function DevisPage() {
           <h2 className="font-display text-3xl font-bold text-navy-700 mb-4">Demande reçue !</h2>
           <p className="text-slate-500 text-lg mb-2">Merci <strong>{form.nom}</strong>.</p>
           <p className="text-slate-500 mb-8">Nous vous rappelons sous <strong>24h</strong> pour vous communiquer votre devis gratuit.</p>
-          <a href="tel:0612345678" className="btn-primary justify-center mx-auto w-fit">
-            Appeler maintenant : 06 12 34 56 78
+          <a href="tel:0639981234" className="btn-primary justify-center mx-auto w-fit">
+            Appeler maintenant : 06 39 98 12 34
           </a>
         </div>
       </div>
@@ -193,7 +194,7 @@ export default function DevisPage() {
                 <div className="space-y-4">
                   {[
                     { key: 'nom', label: 'Nom & Prénom', type: 'text', placeholder: 'Jean Dupont' },
-                    { key: 'tel', label: 'Téléphone', type: 'tel', placeholder: '06 12 34 56 78' },
+                    { key: 'tel', label: 'Téléphone', type: 'tel', placeholder: '06 39 98 12 34' },
                     { key: 'email', label: 'Email', type: 'email', placeholder: 'jean@exemple.fr' },
                     { key: 'ville', label: 'Ville', type: 'text', placeholder: 'Sarreguemines' },
                     { key: 'code_postal', label: 'Code postal', type: 'text', placeholder: '57200' },
@@ -250,6 +251,15 @@ export default function DevisPage() {
                   </svg>
                   <span className="text-green-700">Devis <strong>100% gratuit et sans engagement</strong>. Nous vous rappelons sous 24h.</span>
                 </div>
+                <label className="flex items-start gap-3 text-sm text-slate-600 mb-6 cursor-pointer">
+                  <input type="checkbox" required checked={consent} onChange={e => setConsent(e.target.checked)}
+                    className="mt-0.5 w-4 h-4 shrink-0" />
+                  <span>
+                    J&apos;accepte que mes données soient utilisées pour traiter ma demande de devis.
+                    Site de démonstration : les demandes ne sont transmises à aucun artisan.{' '}
+                    <a href="https://www.metisflow.fr/confidentialite/" target="_blank" rel="noopener noreferrer" className="underline">Politique de confidentialité</a>
+                  </span>
+                </label>
                 {error && (
                   <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-sm text-red-700 mb-4">
                     {error}
@@ -257,7 +267,7 @@ export default function DevisPage() {
                 )}
                 <div className="flex gap-3">
                   <button type="button" onClick={() => setStep(2)} className="btn-outline flex-1 justify-center" disabled={loading}>← Retour</button>
-                  <button type="submit" disabled={loading} className="btn-primary flex-1 justify-center disabled:opacity-60 disabled:cursor-not-allowed">
+                  <button type="submit" disabled={loading || !consent} className="btn-primary flex-1 justify-center disabled:opacity-60 disabled:cursor-not-allowed">
                     {loading ? 'Envoi en cours…' : 'Envoyer ma demande ✓'}
                   </button>
                 </div>
